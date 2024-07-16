@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container m-3">
+    <form method="POST" action="" novalidate>
+        {{ form.hidden_tag() }}
+        <table id="data" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Priority</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for todo in todo_list %}
+            <tr>
+                <td>{{ todo.item }}</td>
+                <td>{{ todo.priority}}</td>
+                <td>
+                    <button type="submit" name="+" value="{{ todo.priority }}">
+                        +
+                    </button>
+                </td>
+                <td>
+                    <button type="submit" name="-" value="{{ todo.priority }}">
+                        -
+                    </button>
+                </td>
+                <td>
+                    <button type="submit" name="delete" value="{{ todo.priority }}">
+                        delete
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}

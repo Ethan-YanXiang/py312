@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action="" novalidate enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="my-4">
+        {{ form.file.label }}<br/>{{ form.file() }}<br/>
+        {% for error in form.file.errors %}
+            <div style="color: red;">[{{ error }}]</div>
+        {% endfor %}
+    </div>
+    <div>{{ form.submit() }}</div>
+</form>
+{% endblock %}
