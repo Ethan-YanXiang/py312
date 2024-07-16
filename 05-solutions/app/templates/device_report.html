@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Device Report</h2>
+    <p>Device ID: {{ device_id }}</p>
+    <h2>Loan History</h2>
+    {% if loans %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Loan ID</th>
+                <th>Device ID</th>
+                <th>Borrow Date</th>
+                <th>Return Date</th>
+                <th>Student ID</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for loan in loans %}
+                <tr>
+                    <td>{{ loan.loan_id }}</td>
+                    <td>{{ loan.device_id }}</td>
+                    <td>{{ loan.borrowdatetime }}</td>
+                    <td>{{ loan.returndatetime }}</td>
+                    <td>{{ loan.student_id }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No loan history found for this device.</p>
+    {% endif %}
+{% endblock %}
