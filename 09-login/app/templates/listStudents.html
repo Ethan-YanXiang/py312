@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container m-3">
+    {% for student in students %}
+        <div class="m-2">{{student}}</div>
+    {% endfor %}
+</div>
+{% endblock %}
