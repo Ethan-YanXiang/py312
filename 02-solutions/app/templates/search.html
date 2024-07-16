@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-sm-4">
+    <form action="{{ url_for('search') }}" method="POST">
+        <input class="form-control form-control-sm mt-3" type="text" name="prefix" placeholder="Enter prefix">
+        <input class="btn-primary  mt-3" type="submit" value="Submit">
+    </form>
+</div>
+    {% if prefix %}
+        <h4>Match Abbrev</h4>
+        <ul class="list-group">
+            {% for abbr in abbreviations %}
+                <li class="list-group-item">{{ abbr[0] }} -- {{ abbr[1] }}</li>
+            {% endfor %}
+        </ul>
+    {% elif abbreviations %}
+        <h4>Please enter prefix</h4>
+    {% endif %}
+{% endblock %}

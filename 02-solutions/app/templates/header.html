@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h4>Abbrev</h4>
+    <ul class="list-group">
+        {% for abbr in abbreviations %}
+            <li class="list-group-item">
+                {{ abbr[0] }} -- {{ abbr[1] }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
