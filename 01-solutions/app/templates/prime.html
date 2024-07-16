@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form method="POST" action="{{ url_for('prime_func') }}">
+
+        <label class="col-sm-4">
+            <input class="form-control mt-1"
+                   type="number" name="num"
+                   placeholder="Enter number"><br/>
+            <input class="btn-primary"
+                   type="submit"
+                   value="Submit">
+        </label>
+    </form><br/>
+
+    {% if factors %}
+        <h4>Prime factors of {{ num }}:</h4>
+        <ul>
+            {% for factor in factors %}
+                <li>{{ factor }}</li>
+            {% endfor %}
+        </ul>
+    {% elif num %}
+        <h4>{{ num }} is Prime</h4>
+    {% endif %}
+
+{% endblock content %}

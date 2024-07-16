@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p>
+        This is the browser of:<br/>{{ user_agent }}
+    </p><br/>
+    <p>
+        Data details:<br/>{{ request }}
+    </p>
+{% endblock content %}
